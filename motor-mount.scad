@@ -7,18 +7,20 @@ mr  = 28.0; // motor radius
 ml  = 40.0; // motor length
 mdx = 19.0; // mounting screw separation in x
 mdy = 16.0; // mounting screw separation in y
-rez = 32;   // resolution for holes
+sd  =  3.2; // mounting screw diameter
+pd  =  6.0; // propeller diameter
+rez = 32.0; // resolution for holes
 
 module mounting_screw() {
     translate([-(pt+1),0,0])
     rotate([0,90,0])
-    cylinder(h=pt+2, d=3, $fn=rez);    
+    cylinder(h=pt+2, d=sd, $fn=rez);    
 }
 
 module propeller_shaft() {
     translate([-(pt+1),0,0])
     rotate([0,90,0])
-    cylinder(h=pt+2, d=6, $fn=rez);    
+    cylinder(h=pt+2, d=pd, $fn=rez);    
 }
 
 module motor_indent() {
