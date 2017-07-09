@@ -43,14 +43,16 @@ module box() {
         translate([thick, thick, 0])
             cube([length-2*thick, width-2*thick, height+thick]);
         // subtract cutouts for battery wires
-        translate([length/2, width/4, height/3])
-            cube([length, width/2, height]);
+        translate([length/2, thick, height/4])
+            cube([length, width/4, height]);
+        translate([length/2, width*3/4-thick, height/4])
+            cube([length, width/4, height]);
     }
 }
 
 module peg(flip=0) {
-    r1 = thick;
-    r2 = thick*1.5;
+    r1 = thick*1.25;
+    r2 = thick*1.25;
     rotate([90, 90, 180*flip])
     translate([0, 0, -thick])
         cylinder(h=tabs*0.7+thick, r1=r1, r2=r2, $fn=16.0);
