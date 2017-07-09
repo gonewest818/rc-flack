@@ -8,7 +8,7 @@
 // overall dimensions in inches
 _width = 1.5;
 _length = 4.5;
-_height = 0.5;
+_height = 0.33;
 
 // conversion to mm
 mm = 25.4;  // millimeters per inch
