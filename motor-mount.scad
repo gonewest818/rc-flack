@@ -1,6 +1,6 @@
 // Motor mount for Make Magazine's "Towel" RC plane
 // designed to fit the Great Plains Ammo GPMG5190 motor
-// version 5
+// version 6
 
 pt  =  1.25; // plate thickness
 mr  = 28.5; // motor radius
@@ -38,7 +38,7 @@ module motor_barrel() {
 
 module tie_wrap() {
     translate([0,0,-1])
-    cube([2, 4, pt+2]);    
+    cube([4, 2, pt+2]);    
 }
 
 
@@ -62,13 +62,13 @@ union() {
     
     // bottom plate
     difference() {
-        translate([-pt, -pt-5.0, 0]) cube([2*pt+ml, mr+2*pt+2*5.0, pt]);
+        translate([-pt, -pt-15.0, 0]) cube([2*pt+ml, mr+2*pt+2*15.0, pt]);
 
         union() { // cut-out tie-wrap holes
-            translate([2*pt,     -4.0+pt/2, 0]) tie_wrap();
-            translate([  mr,     -4.0+pt/2, 0]) tie_wrap();
-            translate([5*pt, mr+5.0-9*pt/2, 0]) tie_wrap();
-            translate([  mr, mr+5.0-9*pt/2, 0]) tie_wrap();
+            translate([2*pt,     -14.0+pt/2, 0]) tie_wrap();
+            translate([  mr,     -14.0+pt/2, 0]) tie_wrap();
+            translate([2*pt, mr+15.0-6*pt/2, 0]) tie_wrap();
+            translate([  mr, mr+15.0-6*pt/2, 0]) tie_wrap();
         }
     }
 }
