@@ -12,6 +12,7 @@ easy  = 12.0; // short throw mounting hole
 hard  = 24.0; // long throw mounting hole
 half  = (easy+hard)/2.0;
 chwid = 16.0;
+chctl = 28.0;
 chlen = 50.0;
 
 // resolution of cylinders
@@ -60,7 +61,7 @@ module control_horn() {
             // piece w/ hole
             minkowski() {
                 translate([radius,radius,0])
-                    cube([chwid-2*radius, chwid-2*radius, armtk-1]);
+                    cube([chctl-2*radius, chwid-2*radius, armtk-1]);
                 cylinder(h=1, d=2*radius, $fn=32);
             }
             // mounting plate
@@ -73,7 +74,7 @@ module control_horn() {
             cube([armtk, chwid, armtk]);
         }
         // control wire hole
-        translate([chwid/2, chwid/2, 0])
+        translate([chctl-chwid/2, chwid/2, 0])
             cylinder(h=armtk, d=hngr, $fn=rez);
         // zip ties
         translate([0, 0, chlen*1/4])
@@ -102,5 +103,5 @@ module horns(n=4, m=3) {
 
 union() {
     horns(1,2);
-    translate ([2*chwid, 0, 0]) arms(1,2);
+    translate ([3/2*chctl, 0, 0]) arms(1,2);
 }
